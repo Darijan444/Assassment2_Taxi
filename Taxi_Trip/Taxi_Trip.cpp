@@ -36,15 +36,6 @@ int main(){
 
 
     mainMenu(customers, drivers, admins, orders, inquiries);
-    // customerMenu();
-    // driverMenu();
-    // ride(customer);
-    // signup(customers);
-    // adminMenu(customers, drivers, admins, orders, inquiries);
-    // adminLogin(customers, drivers, admins, orders, inquiries);
-    // login();
-    // guestOrder();
-    // myPage();
 
     return 0;
 }
