@@ -14,6 +14,8 @@ int main()
 
     cout << "I'm Veni\n";
 
+    cout << "Hello everyone\n";
+
     return 0;
 }
 
