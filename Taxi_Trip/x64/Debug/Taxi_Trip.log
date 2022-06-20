@@ -1,20 +1,11 @@
 ﻿  Taxi_Trip.cpp
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(57,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Taxi_Trip.cpp(11,17): error C2011: 'Customer': 'struct' type redefinition
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(11): message : see declaration of 'Customer'
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Taxi_Trip.cpp(175,13): warning C4566: character represented by universal-character-name '\u2605' cannot be represented in the current code page (1252)
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Taxi_Trip.cpp(175,13): warning C4566: character represented by universal-character-name '\u2606' cannot be represented in the current code page (1252)
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Taxi_Trip.cpp(185,21): error C2079: 'c' uses undefined struct 'Customer'
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Taxi_Trip.cpp(254,25): error C2664: 'void std::vector<Customer,std::allocator<Customer>>::push_back(const _Ty &)': cannot convert argument 1 from 'int' to 'const _Ty &'
-          with
-          [
-              _Ty=Customer
-          ]
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Taxi_Trip.cpp(254,25): message : Reason: cannot convert from 'int' to 'const _Ty'
-          with
-          [
-              _Ty=Customer
-          ]
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Taxi_Trip.cpp(254,25): message : use of undefined type 'Customer'
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(11,8): message : see declaration of 'Customer'
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.32.31326\include\vector(896,23): message : see declaration of 'std::vector<Customer,std::allocator<Customer>>::push_back'
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(177,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(211,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(463,11): warning C4566: character represented by universal-character-name '\U0001F381' cannot be represented in the current code page (1252)
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(484,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(526,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(645,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(712,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(828,17): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(963,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Taxi_Trip.vcxproj -> C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\x64\Debug\Taxi_Trip.exe
