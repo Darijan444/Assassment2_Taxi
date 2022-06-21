@@ -23,7 +23,7 @@ struct Customers{
     string postalCode;
     string password;
     string payment;
-    // string creditCardNumber;
+    string creditCardNumber;
     string pickupLocation;
     string destination;
     int selectedService;
@@ -41,7 +41,7 @@ struct Customers{
         postalCode = pc;
         password = p;
         payment = pm;
-        // creditCardNumber = ccn;
+        creditCardNumber = ccn;
         pickupLocation = pl;
         destination = des;
         selectedService = ss;
@@ -268,6 +268,7 @@ void readCustomerList(vector <Customers> &customers){
         getline(i_stream, c.postalCode, ',');
         getline(i_stream, c.password, ',');
         getline(i_stream, c.payment, ',');
+        getline(i_stream, c.creditCardNumber, ',');
 
         customers.push_back(c);  
     }
@@ -332,6 +333,12 @@ bool isPhoneValid(string& phone){
    regex pattern("(\\d+)(\\-)(\\d+)(\\-)(\\d+)");               // define a regular expression
    
    return regex_match(phone, pattern);                          // try to match the string with the regular expression
+}
+
+bool isCreditValid(string& credit){
+   regex pattern("(\\d+)(\\-)(\\d+)(\\-)(\\d+)(\\-)(\\d+)");
+   
+   return regex_match(credit, pattern);  
 }
 
 bool isPostalCodeValid(string& postalCode){
