@@ -1,0 +1,35 @@
+﻿  Taxi_Trip.cpp
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Common.h(219,22): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Admin.h(43,9): warning C4101: 'option1': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Admin.h(43,18): warning C4101: 'option2': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Admin.h(174,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Admin.h(173,9): warning C4101: 'option': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Admin.h(367,58): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(31,22): warning C4101: 'accountOptI': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(147,29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(334,43): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(392,47): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(410,58): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(430,9): warning C4101: 'option': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(549,29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(792,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(1090,55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(1092,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(1093,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(801,9): warning C4101: 'intOption': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(790,9): warning C4101: 'option1': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(804,9): warning C4101: 'pickOptI': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(790,18): warning C4101: 'option2': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(804,19): warning C4101: 'desOptI': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Customer.h(804,28): warning C4101: 'serOptI': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Driver.h(31,9): warning C4101: 'option': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Driver.h(97,27): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Driver.h(96,9): warning C4101: 'option': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Driver.h(331,47): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Driver.h(348,58): warning C4554: '&': check operator precedence for possible error; use parentheses to clarify precedence
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Driver.h(368,9): warning C4101: 'option': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Driver.h(498,29): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Driver.h(495,22): warning C4101: 'accountOptI': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Driver.h(625,9): warning C4101: 'option': unreferenced local variable
+C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\Taxi_Trip.cpp(154,37): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  Taxi_Trip.vcxproj -> C:\Users\venir\Desktop\Taxi_Assessment\Assassment2_Taxi\Taxi_Trip\x64\Debug\Taxi_Trip.exe
