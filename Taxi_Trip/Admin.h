@@ -62,7 +62,7 @@ void adminMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector 
         getline(cin, adminMenuOptS);                                                                    //integer validation
         if(isIntegerValid(adminMenuOptS) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (adminMenuOptS == "1" || adminMenuOptS == "2" || adminMenuOptS == "3" || adminMenuOptS == "4" || adminMenuOptS == "5"){   //option validation
@@ -70,7 +70,7 @@ void adminMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector 
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -113,7 +113,7 @@ void adminMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector 
             getline(cin, reportOptS);                                                                    //integer validation
             if(isIntegerValid(reportOptS) == false){
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+                cout << "\n !Select a number from the menu. (Press any key) \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             } else if (reportOptS == "1" || reportOptS == "2" || reportOptS == "3" || reportOptS == "4" || reportOptS == "5"){   //option validation
@@ -121,7 +121,7 @@ void adminMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector 
                 break;
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+                cout << "\n !Select a number from the menu. (Press any key) \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
@@ -190,7 +190,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Enter your name. (Press any key) \n\n";
+            cout << "\n !Enter your name. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -204,7 +204,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
         if (isPhoneValid(a.phone) == true){
             break;
         } else {
-            cout << "\n  ❗️Please enter a valid phone number\n\n";
+            cout << "\n  !Please enter a valid phone number\n\n";
         }
     }
 
@@ -216,7 +216,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
         if (isEmailValid(a.email) == true){
             break;
         } else {
-            cout << "\n  ❗️Please enter a valid email address\n\n";
+            cout << "\n  !Please enter a valid email address\n\n";
         }
     }
 
@@ -237,7 +237,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
         if (isPostalCodeValid(a.postalCode) == true){
             break;
         } else {
-            cout << "\n  ❗️Please enter a valid postal code\n\n";
+            cout << "\n  !Please enter a valid postal code\n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -305,7 +305,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
             }
             break;
         } else {
-            cout << "\n  ❗️Please answer with y or n\n\n";
+            cout << "\n  !Please answer with y or n\n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -358,14 +358,14 @@ void adminLogin(vector <Customers> &customers, vector <Drivers> &drivers, vector
 
         } else if (attemptCounts == 0){
             cout << "----------------------------------------------------------------\n";
-            cout << "❗️You have exceeded the number of login attempts.\n";
+            cout << "!You have exceeded the number of login attempts.\n";
             cout << "  Please wait a while and try again.\n";
         } else {
             if (emailFlag == 1 && passwordFlag == 0){
-                cout << "\n  ❗️Your password is wrong\n";
+                cout << "\n  !Your password is wrong\n";
                 cout << "    Please try again.\n\n";
             } else if (emailFlag == 0 & passwordFlag == 0){
-                cout << "\n  ❗️Your email address is not registered.\n";
+                cout << "\n  !Your email address is not registered.\n";
                 cout << "    Please try again.\n\n";
             } 
         }
@@ -472,7 +472,7 @@ void adminInfo(vector <Customers> &customers, vector <Drivers> &drivers, vector 
             }
             break;
         } else {
-            cout << "\n  ❗️Please answer with y or n\n\n";
+            cout << "\n  !Please answer with y or n\n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }

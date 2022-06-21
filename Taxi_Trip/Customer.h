@@ -48,7 +48,7 @@ void customerMenu(vector <Customers> &customers, vector <Orders> &orders, vector
         getline(cin, cusMenuOptS);                                                                    //integer validation
         if(isIntegerValid(cusMenuOptS) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (cusMenuOptS == "1" || cusMenuOptS == "2" || cusMenuOptS == "3" || cusMenuOptS == "4"){   //option validation
@@ -56,7 +56,7 @@ void customerMenu(vector <Customers> &customers, vector <Orders> &orders, vector
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -87,7 +87,7 @@ void customerMenu(vector <Customers> &customers, vector <Orders> &orders, vector
                 getline(cin, accountOptS); 
                 if(isIntegerValid(accountOptS) == false){
                     cout << " ------------------------------------------------\n";
-                    cout << "\n ❗️Select a number from the menu. \n\n";
+                    cout << "\n !Select a number from the menu. \n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 } else if (accountOptS == "1" || accountOptS == "2" || accountOptS == "3"){ 
@@ -95,7 +95,7 @@ void customerMenu(vector <Customers> &customers, vector <Orders> &orders, vector
                     break;
                 } else {
                     cout << " ------------------------------------------------\n";
-                    cout << "\n ❗️Select a number from the menu. \n\n";
+                    cout << "\n !Select a number from the menu. \n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
@@ -164,7 +164,7 @@ void customerSignup(vector <Customers> &customers, int* sId){
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Enter your name. (Press any key) \n\n";
+            cout << "\n !Enter your name. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -177,7 +177,7 @@ void customerSignup(vector <Customers> &customers, int* sId){
         if (isPhoneValid(c.phone) == true){
             break;
         } else {
-            cout << "\n  ❗️Please enter a valid phone number\n\n";
+            cout << "\n  !Please enter a valid phone number\n\n";
         }
     }
 
@@ -188,7 +188,7 @@ void customerSignup(vector <Customers> &customers, int* sId){
         if (isEmailValid(c.email) == true){
             break;
         } else {
-            cout << "\n  ❗️Please enter a valid email address\n\n";
+            cout << "\n  !Please enter a valid email address\n\n";
         }
     }
 
@@ -209,7 +209,7 @@ void customerSignup(vector <Customers> &customers, int* sId){
         if (isPostalCodeValid(c.postalCode) == true){
             break;
         } else {
-            cout << "\n  ❗️Please enter a valid postal code\n\n";
+            cout << "\n  !Please enter a valid postal code\n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -255,7 +255,7 @@ void customerSignup(vector <Customers> &customers, int* sId){
         getline(cin, payOptS);                                                                   
         if(isIntegerValid(payOptS) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. \n\n";
+            cout << "\n !Select a number from the menu. \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (payOptS == "1" || payOptS == "2" || payOptS == "3"){ 
@@ -280,7 +280,7 @@ void customerSignup(vector <Customers> &customers, int* sId){
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. \n\n";
+            cout << "\n !Select a number from the menu. \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -341,7 +341,7 @@ void customerSignup(vector <Customers> &customers, int* sId){
             }
             break;
         } else {
-            cout << "\n  ❗️Please answer with y or n\n\n";
+            cout << "\n  !Please answer with y or n\n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -405,11 +405,11 @@ int customerLogin(vector <Customers> &customers){
 
         } else {
             if (emailFlag == 1 && passwordFlag == 0){
-                cout << "\n  ❗️Your password is wrong\n";
+                cout << "\n  !Your password is wrong\n";
                 cout << "    Please try again.\n\n";
             } else if (emailFlag == 0 & passwordFlag == 0){
-                // cout << "\n  ❗️Your email address and password are wrong (or you are not authorized)\n";
-                cout << "\n  ❗️Your email address is not registered.\n";
+                // cout << "\n  !Your email address and password are wrong (or you are not authorized)\n";
+                cout << "\n  !Your email address is not registered.\n";
                 cout << "    Please try again.\n\n";
             } 
         }
@@ -447,7 +447,7 @@ void customerPage(vector <Customers> &customers, vector <Orders> &orders, vector
         getline(cin, myPageOptS);                                                //integer validation
         if(isIntegerValid(myPageOptS) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (myPageOptS == "1" || myPageOptS == "2" || myPageOptS == "3" || myPageOptS == "4"){   //option validation
@@ -457,7 +457,7 @@ void customerPage(vector <Customers> &customers, vector <Orders> &orders, vector
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -522,7 +522,7 @@ void customerPage(vector <Customers> &customers, vector <Orders> &orders, vector
         cout << "************************************************\n";
         cout << "Coupons\n";
         cout << "************************************************\n";
-        cout << " - 30% off coupon　🎁" << "\n";
+        cout << " - 30% off coupon　" << "\n";
 
         //go back to the My Page
         cout << "\nPress any key to go back to the My Page\n";
@@ -570,7 +570,7 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
         getline(cin, inquiryOptS);                                                //integer validation
         if(isIntegerValid(inquiryOptS) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (inquiryOptS == "1" || inquiryOptS == "2" || inquiryOptS == "3"){   //option validation
@@ -580,7 +580,7 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key to go back) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key to go back) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -597,7 +597,7 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
         getline (cin, inquiryDetail);
 
         if(inquiryDetail == ""){
-            cout << "\n ❗️Please enter messages (Press any key) \n\n";
+            cout << "\n !Please enter messages (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else {
@@ -621,7 +621,7 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
             getline(cin, accountOptS);              
             if(isIntegerValid(accountOptS) == false){
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Select a number from the menu. \n\n";
+                cout << "\n !Select a number from the menu. \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             } else if (accountOptS == "1" || accountOptS == "2" || accountOptS == "3"){
@@ -629,7 +629,7 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
                 break;
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Select a number from the menu. \n\n";
+                cout << "\n !Select a number from the menu. \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
@@ -658,7 +658,7 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
                     break;
                 } else {
                     cout << " ------------------------------------------------\n";
-                    cout << "\n ❗️Enter your name. (Press any key) \n\n";
+                    cout << "\n !Enter your name. (Press any key) \n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
@@ -671,7 +671,7 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
                 if (isPhoneValid(iq.phone) == true){
                     break;
                 } else {
-                    cout << "\n  ❗️Please enter a valid phone number\n\n";
+                    cout << "\n  !Please enter a valid phone number\n\n";
                 }
             }
 
@@ -683,7 +683,7 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
                 if (isEmailValid(iq.email) == true){
                     break;
                 } else {
-                    cout << "\n  ❗️Please enter a valid email address\n\n";
+                    cout << "\n  !Please enter a valid email address\n\n";
                 }
             }
             *sId = 1000;
@@ -765,7 +765,7 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
                 }
                 break;
             } else {
-                cout << "\n  ❗️Please answer with y or n\n\n";
+                cout << "\n  !Please answer with y or n\n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
@@ -819,7 +819,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
         getline(cin, pickOptS);                                            
         if(isIntegerValid(pickOptS) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (pickOptS == "1" || pickOptS == "2"){  
@@ -829,7 +829,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -846,7 +846,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Enter valid address. (Press any key) \n\n";
+            cout << "\n !Enter valid address. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -860,7 +860,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
         getline(cin, desOptS);                                            
         if(isIntegerValid(desOptS) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (desOptS == "1" || desOptS == "2"){  
@@ -870,7 +870,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -888,7 +888,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Enter valid address. (Press any key) \n\n";
+            cout << "\n !Enter valid address. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -909,7 +909,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             cin.ignore(10000, '\n');
             break;
         } else {
-            cout << "\n  ❗️Please answer with y or n\n\n";
+            cout << "\n  !Please answer with y or n\n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -966,13 +966,13 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                     // cin.ignore(10000, '\n');
                     break;
                 } else {
-                    cout << "\n ❗️Reservations are possible from 2022(Jan) to 2023(Dec) (Press any key)\n\n";
+                    cout << "\n !Reservations are possible from 2022(Jan) to 2023(Dec) (Press any key)\n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Please enter a valid number. (Press any key)\n\n";
+                cout << "\n !Please enter a valid number. (Press any key)\n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
@@ -991,13 +991,13 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                     // cin.ignore(10000, '\n');
                     break;
                 } else {
-                    cout << "\n ❗️Please enter a valid number. (Press any key)\n\n";
+                    cout << "\n !Please enter a valid number. (Press any key)\n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Please enter a valid number. (Press any key)\n\n";
+                cout << "\n !Please enter a valid number. (Press any key)\n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
@@ -1016,13 +1016,13 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                     // cin.ignore(10000, '\n');
                     break;
                 } else {
-                    cout << "\n ❗️Please enter a valid number. (Press any key)\n\n";
+                    cout << "\n !Please enter a valid number. (Press any key)\n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Please enter a valid number. (Press any key)\n\n";
+                cout << "\n !Please enter a valid number. (Press any key)\n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
@@ -1041,13 +1041,13 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                     // cin.ignore(10000, '\n');
                     break;
                 } else {
-                    cout << "\n ❗️Please enter a valid number. (Press any key)\n\n";
+                    cout << "\n !Please enter a valid number. (Press any key)\n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Please enter a valid number. (Press any key)\n\n";
+                cout << "\n !Please enter a valid number. (Press any key)\n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
@@ -1066,13 +1066,13 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                     // cin.ignore(10000, '\n');
                     break;
                 } else {
-                    cout << "\n ❗️Please enter a valid number. (Press any key)\n\n";
+                    cout << "\n !Please enter a valid number. (Press any key)\n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Please enter a valid number. (Press any key)\n\n";
+                cout << "\n !Please enter a valid number. (Press any key)\n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
@@ -1107,7 +1107,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
         getline(cin, serOptS);              
         if(isIntegerValid(serOptS) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. \n\n";
+            cout << "\n !Select a number from the menu. \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (serOptS == "1" || serOptS == "2" || serOptS == "3"){
@@ -1115,7 +1115,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. \n\n";
+            cout << "\n !Select a number from the menu. \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -1138,7 +1138,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             getline(cin, accountOptS);              
             if(isIntegerValid(accountOptS) == false){
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Select a number from the menu. \n\n";
+                cout << "\n !Select a number from the menu. \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             } else if (accountOptS == "1" || accountOptS == "2" || accountOptS == "3"){
@@ -1148,7 +1148,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                 break;
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Select a number from the menu. \n\n";
+                cout << "\n !Select a number from the menu. \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
@@ -1177,7 +1177,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                     break;
                 } else {
                     cout << " ------------------------------------------------\n";
-                    cout << "\n ❗️Enter your name. (Press any key) \n\n";
+                    cout << "\n !Enter your name. (Press any key) \n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
@@ -1191,7 +1191,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                 if (isPhoneValid(c.phone) == true){
                     break;
                 } else {
-                    cout << "\n  ❗️Please enter a valid phone number\n\n";
+                    cout << "\n  !Please enter a valid phone number\n\n";
                 }
             }
 
@@ -1205,7 +1205,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                     cin.ignore(10000, '\n');
                     break;
                 } else {
-                    cout << "\n  ❗️Please enter a valid email address\n\n";
+                    cout << "\n  !Please enter a valid email address\n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
@@ -1224,7 +1224,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                 getline(cin, payOptS);                                                                   
                 if(isIntegerValid(payOptS) == false){
                     cout << " ------------------------------------------------\n";
-                    cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+                    cout << "\n !Select a number from the menu. (Press any key) \n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 } else if (payOptS == "1" || payOptS == "2" || payOptS == "3"){ 
@@ -1232,7 +1232,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                     break;
                 } else {
                     cout << " ------------------------------------------------\n";
-                    cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+                    cout << "\n !Select a number from the menu. (Press any key) \n\n";
                     cin.clear();
                     cin.ignore(10000, '\n');
                 }
@@ -1355,7 +1355,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                 }
                 break;
             } else {
-                cout << "\n  ❗️Please answer with y or n\n\n";
+                cout << "\n  !Please answer with y or n\n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
