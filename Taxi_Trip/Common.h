@@ -116,7 +116,9 @@ struct Orders{
     int days;
     int week;
     string customerName;
+    string customerPhone;
     string driverName;
+    string driverPhone;
     string carType;
     int pickupArea;
     int destinationArea;
@@ -125,7 +127,7 @@ struct Orders{
     float fare;
     int selectedService;
 
-    Orders(int oid=0, int y=2022, int mon=01, int d=01, int h=01, int min=01, int ds=01, int w=01, string cn="customer name", string dn="driver name", string ct="taxi",int pa = 1, int da = 1, string pl="pickup location", string des="destination", float fa=10.00, int ss=1){
+    Orders(int oid=0, int y=2022, int mon=01, int d=01, int h=01, int min=01, int ds=01, int w=01, string cn="customer name", string cp = "000-0000-0000", string dn="driver name", string dp = "000-0000-0000", string ct="taxi",int pa = 1, int da = 1, string pl="pickup location", string des="destination", float fa=10.00, int ss=1){
         orderId = oid;
         year = y;
         month = mon;
@@ -135,7 +137,9 @@ struct Orders{
         days = ds;
         week = w;
         customerName = cn; 
+        customerPhone = cp;
         driverName = dn; 
+        driverPhone = dp;
         carType = ct;
         pickupArea = pa;
         destinationArea = da;
@@ -201,7 +205,9 @@ void readOrderList(vector <Orders> &orders){
         o.week = atoi(item.c_str());
 
         getline(i_stream, o.customerName, ',');
+        getline(i_stream, o.customerPhone, ',');
         getline(i_stream, o.driverName, ',');
+        getline(i_stream, o.driverPhone, ',');
         getline(i_stream, o.carType, ',');
         getline(i_stream, item, ',');
         o.pickupArea = atoi(item.c_str());
@@ -210,7 +216,7 @@ void readOrderList(vector <Orders> &orders){
         getline(i_stream, o.pickupLocation, ',');
         getline(i_stream, o.destination, ',');
         getline(i_stream, item, ',');
-        o.fare = atoi(item.c_str());
+        o.fare = atof(item.c_str());
         
         orders.push_back(o);
     }
