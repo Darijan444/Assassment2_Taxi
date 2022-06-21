@@ -89,17 +89,15 @@ void mainMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <
         getline(cin, strOption);                                                //integer validation
         if(isIntegerValid(strOption) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (strOption == "1" || strOption == "2" || strOption == "3" || strOption == "4"){   //option validation
             cout << "\n\n";
-            // cin.clear();
-            // cin.ignore(10000, '\n');
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ❗️Select a number from the menu. (Press any key to go back) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key to go back) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -125,7 +123,7 @@ void mainMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <
             getline(cin, strOption);                                                
             if(isIntegerValid(strOption) == false){
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+                cout << "\n !Select a number from the menu. (Press any key) \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             } else if (strOption == "1" || strOption == "2" || strOption == "3"){
@@ -133,7 +131,7 @@ void mainMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <
                 break;
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ❗️Select a number from the menu. (Press any key) \n\n";
+                cout << "\n !Select a number from the menu. (Press any key) \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
