@@ -144,9 +144,7 @@ void customerMenu(vector <Customers> &customers, vector <Orders> &orders, vector
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void customerSignup(vector <Customers> &customers, int* sId){
     struct Customers c;
-    int option;
     int i = customers.size();
-
     string payOptS, customerNameS;
     int payOptI;
 
@@ -261,7 +259,9 @@ void customerSignup(vector <Customers> &customers, int* sId){
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (payOptS == "1" || payOptS == "2" || payOptS == "3"){ 
-            switch(option){
+            payOptI = stoi(payOptS);
+
+            switch(payOptI){
                 case 1:
                 c.payment = "Cash";
                 break;
@@ -302,7 +302,7 @@ void customerSignup(vector <Customers> &customers, int* sId){
     cout << "  State:\t\t" << c.state << "\n";
     cout << "  Country:\t\t" << c.country << "\n";
     cout << "  Postal Code:\t\t" << c.postalCode << "\n";
-    switch(option){
+    switch(payOptI){
         case 1:
         cout << "  Payment Method:\t" << "Cash" << "\n";
         break;
@@ -331,6 +331,7 @@ void customerSignup(vector <Customers> &customers, int* sId){
                 cout << "------------------------------------------------\n";
                 cout << "\n  Thank you!\n  Registred successfully!\n\n\n";
                 customerList << customers[i].customerId << "," << customers[i].name << "," << customers[i].phone << "," << customers[i].email << "," << customers[i].street << "," << customers[i].city << "," << customers[i].state << "," << customers[i].country << "," << customers[i].postalCode << "," << customers[i].password << "," << customers[i].payment << ",\n" ;
+                *sId = customers.size() -1;
                 cin.clear();
                 cin.ignore(10000, '\n');
             } else {
@@ -482,7 +483,8 @@ void customerPage(vector <Customers> &customers, vector <Orders> &orders, vector
         cout << "  City:\t\t\t" << customers[s].city << "\n";
         cout << "  State:\t\t" << customers[s].state << "\n";
         cout << "  Country:\t\t" << customers[s].country << "\n";
-        cout << "  Postal Code:\t\t" << customers[s].postalCode << "\n\n";
+        cout << "  Postal Code:\t\t" << customers[s].postalCode << "\n";
+        cout << "  Payment Method:\t" << customers[s].payment << "\n\n";
 
         //go back to the My Page
         cout << "\nPress any key to go back to the My Page\n";
@@ -494,10 +496,19 @@ void customerPage(vector <Customers> &customers, vector <Orders> &orders, vector
         cout << "************************************************\n";
         cout << "Trip History\n";
         cout << "************************************************\n";
-        cout << "Date\t\t Customer\tDriver\t\tCar Type\t\tPickup Location\t\tDestination\t\tFare\n";
+        cout << "Order ID  Date(Pickup)\t\tCustomer Name\tCustomer Phone\tDriver Name\tDriver Phone\tCar Type\t\tArea(from)  Area(to)\tPickup Location\tDestination    Fare\n";
         for (int i = 1; i < orders.size(); i++){
             if (orders[i].customerName == customers[s].name){
-                cout << orders[i].year << "/" << orders[i].month << "/"<< orders[i].day << "  \t" << orders[i].customerName << "   \t" << orders[i].driverName << "   \t" << orders[i].carType << "   \t" << orders[i].pickupLocation << "   \t\t" << orders[i].destination << "\t" << orders[i].fare <<"   \n";
+                const char *str1 = orders[i].customerName.c_str();      //convert string to char*
+                const char *str2 = orders[i].customerPhone.c_str();
+                const char *str3 = orders[i].driverName.c_str();
+                const char *str4 = orders[i].driverPhone.c_str();
+                const char *str5 = orders[i].carType.c_str();
+                const char *str6 = orders[i].pickupLocation.c_str();
+                const char *str7 = orders[i].destination.c_str();
+
+                // printf("%-8d  %d/%d/%d %02d:%02d  \t%-15s\t%-15s\t%-24s%-12d%-12d%-15s\t%-15s %-2.2f\n", orders[i].orderId,orders[i].year,orders[i].month,orders[i].day,orders[i].hour,orders[i].min,str1,str2,str3,orders[i].pickupArea,orders[i].destinationArea,str4,str5,orders[i].fare);
+                printf("%-8d  %d/%d/%d %02d:%02d  \t%-15s\t%-15s\t%-15s\t%-15s\t%-24s%-12d%-12d%-15s\t%-15s %-2.2f\n", orders[i].orderId,orders[i].year,orders[i].month,orders[i].day,orders[i].hour,orders[i].min,str1,str2,str3,str4,str5,orders[i].pickupArea,orders[i].destinationArea,str6,str7,orders[i].fare);
             }
         }
 
@@ -543,6 +554,8 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
     iq.month = 1 + ltm->tm_mon;
     iq.day = ltm->tm_mday;
 
+    string guestNameS;
+
     //select service
     cout << " ------------------------------------------------\n";
     cout << " Please select a topic: \n";
@@ -576,16 +589,23 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
 
 
 
-    // cout << " ------------------------------------------------\n";
-    // cout << "  Enter option: ";
-    // cin >> option1;
-    // cout << "\n";
-
     cout << " ------------------------------------------------\n";
     cout << " Please tell me the details of your inquiry: \n  ";
-    getline (cin, inquiryDetail);
-    // getline (cin, inquiryDetail);
-    iq.detail = inquiryDetail;
+    while(true){
+        cout << " ------------------------------------------------\n";
+        cout << "   Enter inquiry: ";
+        getline (cin, inquiryDetail);
+
+        if(inquiryDetail == ""){
+            cout << "\n ❗️Please enter messages (Press any key) \n\n";
+            cin.clear();
+            cin.ignore(10000, '\n');
+        } else {
+            iq.detail = inquiryDetail;
+            break;
+        }
+    }
+
 
     if (*sId == 0){
         cout << " ------------------------------------------------\n";
@@ -617,11 +637,6 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
 
         accountOptI = stoi(accountOptS);
 
-
-        // cout << " ------------------------------------------------\n";
-        // cout << "  Enter option: ";
-        // cin >> option2;
-
         switch (accountOptI){
             case 1:
             *sId = customerLogin(customers);
@@ -629,15 +644,26 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
 
             case 2:
             customerSignup(customers, sId);
-            *sId = customers.size() -1;
             break;
-
 
             case 3:
             cout << " ------------------------------------------------\n";
             cout << "Enter your information \n";
-            cout << " Name: ";
-            cin >> iq.name;
+            while(true){
+                cout << " ------------------------------------------------\n";
+                cout << " Name: ";
+                getline(cin, guestNameS);                                            
+                if(isNameValid(guestNameS) == true){
+                    iq.name = guestNameS;
+                    break;
+                } else {
+                    cout << " ------------------------------------------------\n";
+                    cout << "\n ❗️Enter your name. (Press any key) \n\n";
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+            }
+
             while (true){
                 cout << " Phone number (e.g. 000-0000-0000): ";
                 cin  >> iq.phone;
@@ -660,101 +686,91 @@ void customerInquiry(vector <Customers> &customers, vector <Orders> &orders, vec
                     cout << "\n  ❗️Please enter a valid email address\n\n";
                 }
             }
+            *sId = 1000;
         }
     }
 
 
     int s = *sId;
 
-
-    cout << " ------------------------------------------------\n";
-    cout << " Please check and confirm your inquiry \n\n";
-    
     if (s != 0){
-        cout << "  Customer ID:\t\t" << customers[s].customerId <<"\n";
-        cout << "  Name:\t\t\t" << customers[s].name <<"\n";
-        cout << "  Phone Number:\t\t" << customers[s].phone << "\n";
-        cout << "  Emainl Address:\t" << customers[s].email << "\n";
-    } else {
-        cout << "  Name:\t\t\t" << iq.name <<"\n";
-        cout << "  Phone Number:\t\t" << iq.phone << "\n";
-        cout << "  Email Address:\t" << iq.email << "\n";
-    } 
+        if (accountOptI == 1 || accountOptI == 2){
+            cout << " ------------------------------------------------\n";
+            cout << " Please check and confirm your inquiry \n\n";
+            cout << "  Customer ID:\t\t" << customers[s].customerId <<"\n";
+            cout << "  Name:\t\t\t" << customers[s].name <<"\n";
+            cout << "  Phone Number:\t\t" << customers[s].phone << "\n";
+            cout << "  Emainl Address:\t" << customers[s].email << "\n";
+        } else {
+            cout << " ------------------------------------------------\n";
+            cout << " Please check and confirm your inquiry \n\n";
+            cout << "  Name:\t\t\t" << iq.name <<"\n";
+            cout << "  Phone Number:\t\t" << iq.phone << "\n";
+            cout << "  Email Address:\t" << iq.email << "\n";
+        } 
 
 
-    switch (inquiryOptI) {
-        case 1:
-        iq.topic = "Service";
-        cout << "  Topic:\t\t" << iq.topic << "\n";
-        break;
+        switch (inquiryOptI) {
+            case 1:
+            iq.topic = "Service";
+            cout << "  Topic:\t\t" << iq.topic << "\n";
+            break;
 
-        case 2:
-        iq.topic = "Lost Item";
-        cout << "  Topic:\t\t" << iq.topic << "\n";
-        break;
+            case 2:
+            iq.topic = "Lost Item";
+            cout << "  Topic:\t\t" << iq.topic << "\n";
+            break;
 
-        case 3:
-        iq.topic = "Others";
-        cout << "  Topic:\t\t" << iq.topic << "\n";
-        break;
-    }
+            case 3:
+            iq.topic = "Others";
+            cout << "  Topic:\t\t" << iq.topic << "\n";
+            break;
+        }
 
-    cout << "  Detail:\t\t" << iq.detail << "\n";
-
-
-    if (accountOptI != 3){
-        iq.name = customers[s].name;
-        iq.phone = customers[s].phone;
-        iq.email = customers[s].email;
-    }
-    iq.userType = "Customer";
-
-    
-    inquiries.push_back(iq);
+        cout << "  Detail:\t\t" << iq.detail << "\n";
 
 
-    //confirm order
-    string confirm;
-    ofstream inquiryList("InquiryList.csv", ios::app);
+        if (accountOptI != 3){
+            iq.name = customers[s].name;
+            iq.phone = customers[s].phone;
+            iq.email = customers[s].email;
+        }
+        iq.userType = "Customer";
+
+        
+        inquiries.push_back(iq);
 
 
-    while(true){
-        cout << " ------------------------------------------------\n";
-        cout << "Confirm order (y/n): ";
-        cin >> confirm;
+        //confirm order
+        string confirm;
+        ofstream inquiryList("InquiryList.csv", ios::app);
 
-        if (isYesNoValid(confirm) == true){
-            if (confirm == "y"){
-                cout << "------------------------------------------------\n";
-                cout << "\n  Thank you!\n  See you later!\n";
-                inquiryList << inquiries[i].year << "," << inquiries[i].month << "," << inquiries[i].day << "," << inquiries[i].name << "," << inquiries[i].userType << "," << inquiries[i].phone << "," << inquiries[i].email << "," << inquiries[i].topic << "," << inquiries[i].detail << ",\n" ;
-                cin.clear();
-                cin.ignore(10000, '\n');
+
+        while(true){
+            cout << " ------------------------------------------------\n";
+            cout << "Confirm order (y/n): ";
+            cin >> confirm;
+
+            if (isYesNoValid(confirm) == true){
+                if (confirm == "y"){
+                    cout << "------------------------------------------------\n";
+                    cout << "\n  Thank you!\n  See you later!\n";
+                    inquiryList << inquiries[i].year << "," << inquiries[i].month << "," << inquiries[i].day << "," << inquiries[i].name << "," << inquiries[i].userType << "," << inquiries[i].phone << "," << inquiries[i].email << "," << inquiries[i].topic << "," << inquiries[i].detail << ",\n" ;
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                } else {
+                    cout << "\n  Your inquiry was canceled.\n";
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+                break;
             } else {
-                cout << "\n  Your inquiry was canceled.\n";
+                cout << "\n  ❗️Please answer with y or n\n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
-            break;
-        } else {
-            cout << "\n  ❗️Please answer with y or n\n\n";
-            cin.clear();
-            cin.ignore(10000, '\n');
         }
     }
-
-    // cout << "------------------------------------------------\n";
-    // cout << "Confirm order (y/n): ";
-    // cin >> confirm;
-    
-    // if (confirm == 'y'){
-    //     cout << "------------------------------------------------\n";
-    //     cout << "\n  Thank you!\n  See you later!\n";
-    //     inquiryList << inquiries[i].year << "," << inquiries[i].month << "," << inquiries[i].day << "," << inquiries[i].name << "," << inquiries[i].userType << "," << inquiries[i].phone << "," << inquiries[i].email << "," << inquiries[i].topic << "," << inquiries[i].detail << ",\n" ;
-
-    // } else {
-    //     cout << "\n  Your inquiry was canceled.\n";
-    // }
 
     //go back to the admin menu
     cout << "\nPress any key to go back to the Customer Menu\n";
@@ -776,7 +792,6 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
     int i = orders.size();
     o.orderId = i;
 
-    bool isUserInfo = false;
     time_t now = time(0);
     tm *ltm = localtime(&now);
     int currentYear, currentMonth, currentDay, currentHour, currentMin;
@@ -793,7 +808,8 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
 
     string pickLocationS, destinationS;
     // string pickupLocation, destination;
-
+    // bool isUserInfo = false;
+    string customerNameS;
     
 
     //integer & option validation
@@ -1062,25 +1078,9 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             }
         }
 
-
-        // cout << "------------------------------------------------\n";
-        // cout << "When are you going to ride?\n";
-        // cout << "  Year (e.g. 2022): ";
-        // cin >> o.year;
-        // cout << "  Month (e.g. 01): ";
-        // cin >> o.month;
-        // cout << "  Day (e.g. 01): ";
-        // cin >> o.day;
-        // cout << "  Hour (e.g. 01): ";
-        // cin >> o.hour;
-        // cout << "  Minute (e.g. 01): ";
-        // cin >> o.min;
-
         o.days = calculateDays(o.month, o.day);
         o.week = calculateWeeks(o.days);
 
-        // cin.clear();
-        // cin.ignore(10000, '\n');
     }  
 
     //calcurate the fare
@@ -1111,8 +1111,6 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (serOptS == "1" || serOptS == "2" || serOptS == "3"){
-            // cin.clear();
-            // cin.ignore(10000, '\n');
             cout << "\n\n";
             break;
         } else {
@@ -1159,7 +1157,6 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
         accountOptI = stoi(accountOptS);
 
 
-        // cout << " ------------------------------------------------\n";
         switch (accountOptI){
             case 1:
             *sId = customerLogin(customers);
@@ -1167,15 +1164,26 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
 
             case 2:
             customerSignup(customers, sId);
-            *sId = customers.size() -1;
             break;
 
 
             case 3:
-            cout << " ------------------------------------------------\n";
-            cout << "Enter your information \n";
-            cout << " Name: ";
-            cin >> c.name;
+            while(true){
+                cout << " ------------------------------------------------\n";
+                cout << " Name: ";
+                getline(cin, customerNameS);                                            
+                if(isNameValid(customerNameS) == true){
+                    c.name = customerNameS;
+                    break;
+                } else {
+                    cout << " ------------------------------------------------\n";
+                    cout << "\n ❗️Enter your name. (Press any key) \n\n";
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+            }
+
+
             while (true){
                 cout << " Phone number (e.g. 000-0000-0000): ";
                 cin  >> c.phone;
@@ -1193,23 +1201,22 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                 cin  >> c.email;
 
                 if (isEmailValid(c.email) == true){
+                    cin.clear();
+                    cin.ignore(10000, '\n');
                     break;
                 } else {
                     cout << "\n  ❗️Please enter a valid email address\n\n";
+                    cin.clear();
+                    cin.ignore(10000, '\n');
                 }
             }
-            cin.clear();
-            cin.ignore(10000, '\n');
-        }
 
-        if (accountOptI != 1){
             cout << " ------------------------------------------------\n";
             cout << " Payment method: \n";
             cout << "  1. Cash \n";
             cout << "  2. Credit Card \n";
             cout << "  3. Online Payment \n";
             
-
             //integer & option validation
             while(true){
                 cout << " ------------------------------------------------\n";
@@ -1231,133 +1238,130 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
                 }
             }
             payOptI = stoi(payOptS);
-            // cin.clear();
-            // cin.ignore(10000, '\n');
-        }
-        
-        switch(payOptI){
-            case 1:
-            c.payment = "Cash";
-            break;
 
-            case 2:
-            c.payment = "Credit Card";
-            // cout << "Enter your Credit Card Number(e.g. 0000-0000-0000) :";
-            // cin >> c.creditCardNumber;
-            break;
 
-            case 3:
-            // cout << "Choose your Online Payment Service :"
-            c.payment = "Online Payment";
-            break;
+            switch(payOptI){
+                case 1:
+                c.payment = "Cash";
+                break;
+
+                case 2:
+                c.payment = "Credit Card";
+                break;
+
+                case 3:
+                c.payment = "Online Payment";
+                break;
+            }
+            // *sId = 1000;
         }
     }
 
 
     int s = *sId;
-
-    cout << " ------------------------------------------------\n";
-    cout << " Please check and confirm your order information \n\n";
-    if (s != 0){
-        cout << "  Your Name:\t\t" << customers[s].name <<"\n";
-        cout << "  Your Phone number:\t" << customers[s].phone << "\n";
-    } else {
-        cout << "  Your Name:\t\t" << c.name <<"\n";
-        cout << "  Your Phone number:\t" << c.phone << "\n";
-    }
-
-    cout << "  Pickup location:\t" << o.pickupLocation << "\n";
-    cout << "  Destination:\t\t" << o.destination << "\n";
-
-
-    switch (o.selectedService) {
-        case 1:
-        o.carType = "Taxi(4 people)";
-
-        cout << "  Car type:\t\tTaxi(4 people)\n";
-        // cout << "  Fare:\t\t\t$10.00\n";
-        printf("  Fare:\t\t\t$%2.2f\n", taxiFare);
-        printf("  Pick up date:\t\t%d/%d/%d %02d:%02d\n", o.year,o.month,o.day,o.hour,o.min);
-        o.fare = taxiFare;
-        break;
-
-        case 2:
-        o.carType = "Van(5 people)";
-
-        cout << "  Car type:\t\tVan(5 people)\n";
-        printf("  Fare:\t\t\t$%2.2f\n", vanFare);
-        printf("  Pick up date:\t\t%d/%d/%d %02d:%02d\n", o.year,o.month,o.day,o.hour,o.min);
-        o.fare = vanFare;
-        break;
-
-        case 3:
-        o.carType = "Premium Van(6 people)";
-
-        cout << "  Car type:\t\tPremium Van(6 people)\n";
-        printf("  Fare:\t\t\t$%2.2f\n", premiumVanFare);
-        printf("  Pick up date:\t\t%d/%d/%d %02d:%02d\n", o.year,o.month,o.day,o.hour,o.min);
-        o.fare = premiumVanFare;
-        break;
-    }
-
-
-
-    if (accountOptI == 3){
-        o.customerName = c.name;
-    } else {
-        o.customerName = customers[s].name;
-    }
-    o.driverName = "Not assigned";
     
-    orders.push_back(o);
 
 
-    //confirm order
-    string confirm;
-    ofstream orderList("OrderList.csv", ios::app);
-
-
-
-
-    //Yes or No Validation
-    while(true){
+    if (s != 0 || accountOptI == 3){
         cout << " ------------------------------------------------\n";
-        cout << "Confirm order (y/n): ";
-        cin >> confirm;
+        cout << " Please check and confirm your order information \n\n";
 
-        if (isYesNoValid(confirm) == true){
-            if (confirm == "y"){
-                cout << "------------------------------------------------\n";
-                cout << "\n  Thank you!\n  See you later!\n";
-                orderList << orders[i].orderId << "," << orders[i].year << "," << orders[i].month << "," << orders[i].day << "," << orders[i].hour << "," << orders[i].min << "," << orders[i].days << "," << orders[i].week << "," << orders[i].customerName << "," << orders[i].driverName << "," << orders[i].carType << "," << orders[i].pickupArea << "," << orders[i].destinationArea << "," << orders[i].pickupLocation << "," << orders[i].destination << "," << orders[i].fare << ",\n" ;
-                cin.clear();
-                cin.ignore(10000, '\n');
+        if (s != 0){
+            cout << "  Your Name:\t\t" << customers[s].name <<"\n";
+            cout << "  Your Phone number:\t" << customers[s].phone << "\n";
+        } else if (accountOptI == 3) {
+            cout << "  Your Name:\t\t" << c.name <<"\n";
+            cout << "  Your Phone number:\t" << c.phone << "\n";
+        }
+    }
+    
+    if (s != 0 || accountOptI == 3){
+        cout << "  Pickup location:\t" << o.pickupLocation << "\n";
+        cout << "  Destination:\t\t" << o.destination << "\n";
+
+        switch (o.selectedService) {
+            case 1:
+            o.carType = "Taxi(4 people)";
+
+            cout << "  Car type:\t\tTaxi(4 people)\n";
+            printf("  Fare:\t\t\t$%2.2f\n", taxiFare);
+            printf("  Pick up date:\t\t%d/%d/%d %02d:%02d\n", o.year,o.month,o.day,o.hour,o.min);
+            o.fare = taxiFare;
+            break;
+
+            case 2:
+            o.carType = "Van(5 people)";
+
+            cout << "  Car type:\t\tVan(5 people)\n";
+            printf("  Fare:\t\t\t$%2.2f\n", vanFare);
+            printf("  Pick up date:\t\t%d/%d/%d %02d:%02d\n", o.year,o.month,o.day,o.hour,o.min);
+            o.fare = vanFare;
+            break;
+
+            case 3:
+            o.carType = "Premium Van(6 people)";
+
+            cout << "  Car type:\t\tPremium Van(6 people)\n";
+            printf("  Fare:\t\t\t$%2.2f\n", premiumVanFare);
+            printf("  Pick up date:\t\t%d/%d/%d %02d:%02d\n", o.year,o.month,o.day,o.hour,o.min);
+            o.fare = premiumVanFare;
+            break;
+        }
+
+       if (s != 0){
+            cout << "  Payment Method:\t" << customers[s].payment <<"\n";
+        } else if (accountOptI == 3) {
+            cout << "  Payment Method:\t" << c.payment <<"\n";
+        }
+
+
+
+        if (accountOptI == 3){
+            o.customerName = c.name;
+            o.customerPhone = c.phone;
+        } else {
+            o.customerName = customers[s].name;
+            o.customerPhone = customers[s].phone;
+        }
+        o.driverName = "Not assigned";
+        o.driverPhone = "Not assigned";
+        
+        orders.push_back(o);
+
+
+        //confirm order
+        string confirm;
+        ofstream orderList("OrderList.csv", ios::app);
+
+
+
+        //Yes or No Validation
+        while(true){
+            cout << " ------------------------------------------------\n";
+            cout << "Confirm order (y/n): ";
+            cin >> confirm;
+
+            if (isYesNoValid(confirm) == true){
+                if (confirm == "y"){
+                    cout << "------------------------------------------------\n";
+                    cout << "\n  Thank you!\n  See you later!\n";
+                    orderList << orders[i].orderId << "," << orders[i].year << "," << orders[i].month << "," << orders[i].day << "," << orders[i].hour << "," << orders[i].min << "," << orders[i].days << "," << orders[i].week << "," << orders[i].customerName << "," << orders[i].customerPhone << "," << orders[i].driverName << "," << orders[i].driverPhone << "," << orders[i].carType << "," << orders[i].pickupArea << "," << orders[i].destinationArea << "," << orders[i].pickupLocation << "," << orders[i].destination << "," << orders[i].fare << ",\n" ;
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                } else {
+                    cout << "\n  Your order was canceled.\n";
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                }
+                break;
             } else {
-                cout << "\n  Your order was canceled.\n";
+                cout << "\n  ❗️Please answer with y or n\n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
-            break;
-        } else {
-            cout << "\n  ❗️Please answer with y or n\n\n";
-            cin.clear();
-            cin.ignore(10000, '\n');
         }
     }
 
-
-    // cout << "------------------------------------------------\n";
-    // cout << "Confirm order (y/n): ";
-    // cin >> confirm;
-    
-    // if (confirm == 'y'){
-    //     cout << "------------------------------------------------\n";
-    //     cout << "\n  Thank you!\n  See you later!\n";
-    //     orderList << orders[i].orderId << "," << orders[i].year << "," << orders[i].month << "," << orders[i].day << "," << orders[i].hour << "," << orders[i].min << "," << orders[i].days << "," << orders[i].week << "," << orders[i].customerName << "," << orders[i].driverName << "," << orders[i].carType << "," << orders[i].pickupArea << "," << orders[i].destinationArea << "," << orders[i].pickupLocation << "," << orders[i].destination << "," << orders[i].fare << ",\n" ;
-
-    // } else {
-    //     cout << "\n  Your order was canceled.\n";
-    // }
 
     //go back to the admin menu
     cout << "\nPress any key to go back to the Customer Menu\n";
