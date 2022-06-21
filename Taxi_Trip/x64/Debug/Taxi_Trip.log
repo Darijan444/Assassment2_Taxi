@@ -1,11 +1,18 @@
 ﻿  Taxi_Trip.cpp
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(177,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(211,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(463,11): warning C4566: character represented by universal-character-name '\U0001F381' cannot be represented in the current code page (1252)
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(484,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(526,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(645,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(712,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(828,17): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(963,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(153,19): warning C4101: 'accountOptI': unreferenced local variable
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(279,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(574,6): warning C4101: 'option': unreferenced local variable
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(685,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(783,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(933,23): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(1263,53): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(1265,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(1266,46): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(1347,30): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(944,6): warning C4101: 'intOption': unreferenced local variable
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(947,6): warning C4101: 'pickOptI': unreferenced local variable
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(930,17): warning C4101: 'option2': unreferenced local variable
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(947,16): warning C4101: 'desOptI': unreferenced local variable
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(947,25): warning C4101: 'serOptI': unreferenced local variable
+C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\Customer.h(1659,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Taxi_Trip.vcxproj -> C:\Users\darij\OneDrive\Desktop\Taxi_Trip\Taxi_Trip\x64\Debug\Taxi_Trip.exe

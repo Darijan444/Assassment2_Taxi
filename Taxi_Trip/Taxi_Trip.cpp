@@ -26,7 +26,6 @@ int main() {
     int sessionId = 0;        //initial value is 0 (= no session)
     int* sId = &sessionId;
 
-
     
     customerMenu(customer, orders, inquiries, sId);
     
