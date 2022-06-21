@@ -1096,9 +1096,9 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
 
     cout << " ------------------------------------------------\n";
     cout << " Please select a service: \n";
-    printf("  1. Taxi\t\t4 people\t$%2.2f\t\t%d/%d/%d %02d:%02d(Pick up)\n", taxiFare,o.year,o.month,o.day,o.hour,o.min);    //printf is for showing two digits
-    printf("  2. Van\t\t5 people\t$%2.2f\t\t%d/%d/%d %02d:%02d(Pick up)\n", vanFare, o.year,o.month,o.day,o.hour,o.min);
-    printf("  3. Premium Van\t6 people\t$%2.2f\t\t%d/%d/%d %02d:%02d(Pick up)\n", premiumVanFare, o.year,o.month,o.day,o.hour,o.min);
+    printf("  1. Taxi\t\t4 people\tNZD%2.2f\t\t%d/%d/%d %02d:%02d(Pick up)\n", taxiFare,o.year,o.month,o.day,o.hour,o.min);    //printf is for showing two digits
+    printf("  2. Van\t\t5 people\tNZD%2.2f\t\t%d/%d/%d %02d:%02d(Pick up)\n", vanFare, o.year,o.month,o.day,o.hour,o.min);
+    printf("  3. Premium Van\t6 people\tNZD%2.2f\t\t%d/%d/%d %02d:%02d(Pick up)\n", premiumVanFare, o.year,o.month,o.day,o.hour,o.min);
 
     //integer & option validation
     while(true){
@@ -1284,7 +1284,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             o.carType = "Taxi(4 people)";
 
             cout << "  Car type:\t\tTaxi(4 people)\n";
-            printf("  Fare:\t\t\t$%2.2f\n", taxiFare);
+            printf("  Fare:\t\t\tNZD%2.2f\n", taxiFare);
             printf("  Pick up date:\t\t%d/%d/%d %02d:%02d\n", o.year,o.month,o.day,o.hour,o.min);
             o.fare = taxiFare;
             break;
@@ -1293,7 +1293,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             o.carType = "Van(5 people)";
 
             cout << "  Car type:\t\tVan(5 people)\n";
-            printf("  Fare:\t\t\t$%2.2f\n", vanFare);
+            printf("  Fare:\t\t\tNZD%2.2f\n", vanFare);
             printf("  Pick up date:\t\t%d/%d/%d %02d:%02d\n", o.year,o.month,o.day,o.hour,o.min);
             o.fare = vanFare;
             break;
@@ -1302,7 +1302,7 @@ void ride(vector <Customers> &customers, vector <Orders> &orders, vector <Inquir
             o.carType = "Premium Van(6 people)";
 
             cout << "  Car type:\t\tPremium Van(6 people)\n";
-            printf("  Fare:\t\t\t$%2.2f\n", premiumVanFare);
+            printf("  Fare:\t\t\tNZD%2.2f\n", premiumVanFare);
             printf("  Pick up date:\t\t%d/%d/%d %02d:%02d\n", o.year,o.month,o.day,o.hour,o.min);
             o.fare = premiumVanFare;
             break;
