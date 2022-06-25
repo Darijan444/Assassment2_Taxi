@@ -2,8 +2,8 @@
 #include <vector>
 #include <fstream>      //for ofstream, ifstream
 #include <sstream>      //for istringstream
-#include <regex>    //include regular expressions library
-#include <ctime>
+#include <regex>        //include regular expressions library
+#include <ctime>        //to get current time
 
 using namespace std;
 
@@ -183,9 +183,11 @@ void readOrderList(vector <Orders> &orders){
     string line, item;
     struct Orders o;
 
+    //get line
     while (getline(orderList, line)) {    
         istringstream i_stream(line);
         
+        //get item
         //String to integer conversion
         getline(i_stream, item, ',');
         o.orderId = atoi(item.c_str());         //conver string to integer
@@ -330,34 +332,36 @@ void readAdminList(vector <Admins> &admins){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 bool isPhoneValid(string& phone){
-   regex pattern("(\\d+)(\\-)(\\d+)(\\-)(\\d+)");               // define a regular expression
-   
+   regex pattern("(\\d+)(\\-)(\\d+)(\\-)(\\d+)");               // define a regular expression 
    return regex_match(phone, pattern);                          // try to match the string with the regular expression
 }
 
 bool isCreditValid(string& credit){
-   regex pattern("(\\d+)(\\-)(\\d+)(\\-)(\\d+)(\\-)(\\d+)");
-   
+   regex pattern("(\\d+)(\\-)(\\d+)(\\-)(\\d+)(\\-)(\\d+)");    //ex) 0000-0000-0000-0000
    return regex_match(credit, pattern);  
 }
 
 bool isPostalCodeValid(string& postalCode){
-   regex pattern("(\\d+)(\\-)(\\d+)");             
-   
+   regex pattern("(\\d+)(\\-)(\\d+)");                  //ex) 000-0000
    return regex_match(postalCode, pattern);                   
 }
 
 bool isEmailValid(string& email){
-   regex pattern("(\\w+)(\\.|_)?@(\\w+)(\\.(\\w+))");       
-   
+   regex pattern("(\\w+)(\\.|_)?@(\\w+)(\\.(\\w+))");   //test1@gmail.com    
    return regex_match(email, pattern);                           
+}
+
+bool isAddressValid(string& address){
+   regex pattern("(\\w+)?(\\-)?(\\w+)?(\\w+)(\\s+)?(\\w+)?(\\-)?(\\w+)?");                  //ex) street 1-1, 1-1 street 
+   return regex_match(address, pattern);                   
 }
 
 bool isPasswordValid(string& password){
     bool digit, upperCase, lowerCase, specialCharacter, number, result; 
     int digitFlag = 0, upperFlag = 0, lowerFlag = 0, specialCharacterFlag = 0, numberFlag = 0;
 
-    regex digitExpression( ".{8,}" );
+    //check 5 requirements separetely
+    regex digitExpression( ".{8,}" );               
     regex upperCaseExpression( "[A-Z]+" );
     regex lowerCaseExpression( "[a-z]+" );
     regex specialCharacterExpression( "[@!?#]+");
@@ -370,23 +374,23 @@ bool isPasswordValid(string& password){
     number = regex_search(password, numberExpression);                      //Determine if there is a part that matches the number
 
     if (digit == false){
-        cout << "  ❗️At least 8 characters\n";
+        cout << "  !At least 8 characters\n";
         digitFlag = 1;
     }
     if (upperCase == false){
-        cout << "  ❗️At least one upper case character\n";
+        cout << "  !At least one upper case character\n";
         upperFlag = 1;
     }
     if (lowerCase == false){
-        cout << "  ❗️At least one lower case character\n";
+        cout << "  !At least one lower case character\n";
         lowerFlag = 1;
     }
     if (specialCharacter == false){
-        cout << "  ❗️At least one special character (@, !, ?, #)\n";
+        cout << "  !At least one special character (@, !, ?, #)\n";
         specialCharacterFlag = 1;
     } 
     if (number == false){
-        cout << "  ❗️At least one number\n";
+        cout << "  !At least one number\n";
         numberFlag = 1;
     }
 
@@ -397,36 +401,30 @@ bool isPasswordValid(string& password){
     } else {
         result = false;
     }
-
     return result;
 }
 
 bool isIntegerValid(string& number){
    regex pattern("[0-9]");                  //Determine if the number is integer
-
    return regex_match(number, pattern);                    
 }
 
 bool isMultiDigitValid(string& number){
-   regex pattern("[0-9]+");                  //Determine if the number is integer
-
+   regex pattern("[0-9]+");                  //Determine if the number is integer(greater than 2digit is available)
    return regex_match(number, pattern);                    
 }
 
 bool isYesNoValid(string& answer){
-   regex pattern("[yn]");                  //Determine if the number is integer
-
+   regex pattern("[yn]");                  //yes or no (only lower case)
    return regex_match(answer, pattern);                    
 }
 
 bool isNameValid(string& name){
-   regex pattern("(\\w+)(\\s+)?(\\w+)?(\\s+)?(\\w+)?");       
-   
+   regex pattern("(\\w+)(\\s+)?(\\w+)?(\\s+)?(\\w+)?");       //ex) firstname lastname
    return regex_match(name, pattern);                           
 }
 
 bool isLicenseValid(string& number){
-   regex pattern("(\\w+)");       
-   
+   regex pattern("(\\w+)");                  //alphabet is also available
    return regex_match(number, pattern);                           
 }

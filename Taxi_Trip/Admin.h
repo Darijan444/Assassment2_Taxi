@@ -2,8 +2,7 @@
 #include <vector>
 #include <fstream>      //for ofstream, ifstream
 #include <sstream>      //for istringstream
-#include <regex>    //include regular expressions library
-#include <iomanip>
+#include <regex>        //include regular expressions library
 
 using namespace std;
 
@@ -25,7 +24,6 @@ void dailyFareReport(vector <Customers> &customers, vector <Drivers> &drivers, v
 void weeklyFareReport(vector <Customers> &customers, vector <Drivers> &drivers, vector <Admins> &admins, vector <Orders> &orders, vector <Inquiries> &inquiries, int* sId);
 void monthlyFareReport(vector <Customers> &customers, vector <Drivers> &drivers, vector <Admins> &admins, vector <Orders> &orders, vector <Inquiries> &inquiries, int* sId);
 void inquiryReport(vector <Customers> &customers, vector <Drivers> &drivers, vector <Admins> &admins, vector <Orders> &orders, vector <Inquiries> &inquiries, int* sId);
-
 //sign up
 void adminSignup(vector <Admins> &admins, int* sId);
 void adminLogin(vector <Customers> &customers, vector <Drivers> &drivers, vector <Admins> &admins, vector <Orders> &orders, vector <Inquiries> &inquiries, int* sId);
@@ -40,9 +38,8 @@ void adminLogin(vector <Customers> &customers, vector <Drivers> &drivers, vector
 //Functions (Menu)
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void adminMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <Admins> &admins, vector <Orders> &orders, vector <Inquiries> &inquiries, int* sId){
-    int option1, option2;
-    string adminMenuOptS, reportOptS;
-    int adminMenuOptI, reportOptI;
+    string adminMenuOptS, reportOptS;       //to store strings from getline()
+    int adminMenuOptI, reportOptI;          //toconvert string to integer
 
     cout << "\n************************************************\n";
     cout << "Welcome Yoobee Admin!\n";
@@ -62,7 +59,7 @@ void adminMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector 
         getline(cin, adminMenuOptS);                                                                    //integer validation
         if(isIntegerValid(adminMenuOptS) == false){
             cout << " ------------------------------------------------\n";
-            cout << "\n ！Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         } else if (adminMenuOptS == "1" || adminMenuOptS == "2" || adminMenuOptS == "3" || adminMenuOptS == "4" || adminMenuOptS == "5"){   //option validation
@@ -70,19 +67,13 @@ void adminMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector 
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ！Select a number from the menu. (Press any key) \n\n";
+            cout << "\n !Select a number from the menu. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
     }
     adminMenuOptI = stoi(adminMenuOptS);
 
-
-
-    // cout << "------------------------\n";
-    // cout << "  Enter option: ";
-    // cin >> option1;
-    // cout << "\n\n";
 
     switch(adminMenuOptI){
         case 1:
@@ -113,7 +104,7 @@ void adminMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector 
             getline(cin, reportOptS);                                                                    //integer validation
             if(isIntegerValid(reportOptS) == false){
                 cout << " ------------------------------------------------\n";
-                cout << "\n ！Select a number from the menu. (Press any key) \n\n";
+                cout << "\n !Select a number from the menu. (Press any key) \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             } else if (reportOptS == "1" || reportOptS == "2" || reportOptS == "3" || reportOptS == "4" || reportOptS == "5"){   //option validation
@@ -121,18 +112,14 @@ void adminMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector 
                 break;
             } else {
                 cout << " ------------------------------------------------\n";
-                cout << "\n ！Select a number from the menu. (Press any key) \n\n";
+                cout << "\n !Select a number from the menu. (Press any key) \n\n";
                 cin.clear();
                 cin.ignore(10000, '\n');
             }
         }
         reportOptI = stoi(reportOptS);
-
-
-        // cout << "------------------------\n";
-        // cout << "  Enter option: ";
-        // cin >> reportOptI;
         cout << "\n\n";
+
 
         switch(reportOptI){
             case 1:
@@ -172,7 +159,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
     struct Admins a;
     int option;
     int i = admins.size();      //List Size
-    string adminNameS;
+    string adminNameS, streetS, cityS, stateS, countryS;
 
     a.adminId = i;
 
@@ -181,6 +168,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
     cout << "************************************************\n";
     cout << "Enter addmin information \n";
     
+    //name validation
     while(true){
         cout << " ------------------------------------------------\n";
         cout << " Name: ";
@@ -190,7 +178,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
             break;
         } else {
             cout << " ------------------------------------------------\n";
-            cout << "\n ！Enter your name. (Press any key) \n\n";
+            cout << "\n !Enter your name. (Press any key) \n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -204,7 +192,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
         if (isPhoneValid(a.phone) == true){
             break;
         } else {
-            cout << "\n  ！Please enter a valid phone number\n\n";
+            cout << "\n  !Please enter a valid phone number\n\n";
         }
     }
 
@@ -214,22 +202,82 @@ void adminSignup(vector <Admins> &admins, int* sId){
         cin  >> a.email;
 
         if (isEmailValid(a.email) == true){
+            cin.clear();
+            cin.ignore(10000, '\n');
             break;
         } else {
-            cout << "\n  ！Please enter a valid email address\n\n";
+            cout << "\n  !Please enter a valid email address\n\n";
         }
     }
 
+    cout << " ------------------------------------------------\n";
     cout << " Home address: \n";
-    cout << "    Street: ";
-    cin >> a.street;
-    cout << "    City: ";
-    cin >> a.city;
-    cout << "    State: ";
-    cin >> a.state;
-    cout << "    Country: ";
-    cin >> a.country;
 
+    //street validation
+    while(true){
+        // cout << " ------------------------------------------------\n";
+        cout << "    Street: ";
+        getline(cin, streetS);                                            
+        if(isAddressValid(streetS) == true){
+            a.street = streetS;
+            break;
+        } else {
+            cout << " ------------------------------------------------\n";
+            cout << "\n !Enter valid street name. (Press any key) \n\n";
+            cin.clear();
+            cin.ignore(10000, '\n');
+        }
+    }
+
+    //city validation
+    while(true){
+        // cout << " ------------------------------------------------\n";
+        cout << "    City: ";
+        getline(cin, cityS);                                            
+        if(isAddressValid(cityS) == true){
+            a.city = cityS;
+            break;
+        } else {
+            cout << " ------------------------------------------------\n";
+            cout << "\n !Enter valid street name. (Press any key) \n\n";
+            cin.clear();
+            cin.ignore(10000, '\n');
+        }
+    }
+
+    //state validation
+    while(true){
+        // cout << " ------------------------------------------------\n";
+        cout << "    State: ";
+        getline(cin, stateS);                                            
+        if(isAddressValid(stateS) == true){
+            a.state = stateS;
+            break;
+        } else {
+            cout << " ------------------------------------------------\n";
+            cout << "\n !Enter valid street name. (Press any key) \n\n";
+            cin.clear();
+            cin.ignore(10000, '\n');
+        }
+    }
+
+    //country validation
+    while(true){
+        // cout << " ------------------------------------------------\n";
+        cout << "    Country: ";
+        getline(cin, countryS);                                            
+        if(isAddressValid(countryS) == true){
+            a.country = countryS;
+            break;
+        } else {
+            // cout << " ------------------------------------------------\n";
+            cout << "\n !Enter valid street name. (Press any key) \n\n";
+            cin.clear();
+            cin.ignore(10000, '\n');
+        }
+    }
+
+    //postal code validation
     while (true){
         cout << "    Postal Code(e.g. 000-0000): ";
         cin  >> a.postalCode;
@@ -237,7 +285,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
         if (isPostalCodeValid(a.postalCode) == true){
             break;
         } else {
-            cout << "\n  ！Please enter a valid postal code\n\n";
+            cout << "\n  !Please enter a valid postal code\n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -284,9 +332,9 @@ void adminSignup(vector <Admins> &admins, int* sId){
     }
 
     admins.push_back(a);
-
     cout << "\n\n";
 
+    //result
     cout << " ------------------------------------------------\n";
     cout << " Please check and confirm your information \n\n";
     cout << "  Name:\t\t\t" << a.name <<"\n";
@@ -303,6 +351,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
     string confirm;
     ofstream adminList("AdminList.csv", ios::app);
 
+    //yes or no validation
     while(true){
         cout << " ------------------------------------------------\n";
         cout << "Confirm sign up (y/n): ";
@@ -322,7 +371,7 @@ void adminSignup(vector <Admins> &admins, int* sId){
             }
             break;
         } else {
-            cout << "\n  ！Please answer with y or n\n\n";
+            cout << "\n  !Please answer with y or n\n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -367,7 +416,6 @@ void adminLogin(vector <Customers> &customers, vector <Drivers> &drivers, vector
         
         //check results
         if (emailFlag == 1 && passwordFlag == 1){
-            //Login successfully
             cin.clear();
             cin.ignore(10000, '\n');
             adminMenu(customers, drivers, admins, orders, inquiries, sId);
@@ -375,14 +423,14 @@ void adminLogin(vector <Customers> &customers, vector <Drivers> &drivers, vector
 
         } else if (attemptCounts == 0){
             cout << "----------------------------------------------------------------\n";
-            cout << "！You have exceeded the number of login attempts.\n";
+            cout << "!You have exceeded the number of login attempts.\n";
             cout << "  Please wait a while and try again.\n";
         } else {
             if (emailFlag == 1 && passwordFlag == 0){
-                cout << "\n  ！Your password is wrong\n";
+                cout << "\n  !Your password is wrong\n";
                 cout << "    Please try again.\n\n";
             } else if (emailFlag == 0 & passwordFlag == 0){
-                cout << "\n  ！Your email address is not registered.\n";
+                cout << "\n  !Your email address is not registered.\n";
                 cout << "    Please try again.\n\n";
             } 
         }
@@ -410,19 +458,8 @@ void customerInfo(vector <Customers> &customers, vector <Drivers> &drivers, vect
         const char *str8 = customers[i].postalCode.c_str();
         const char *str9 = customers[i].payment.c_str();
         const char *str10 = customers[i].creditCardNumber.c_str();
-        // string lastFourDigit = customers[i].creditCardNumber.substr(customers[i].creditCardNumber.length()-4);
-        // const char *str10 = lastFourDigit.c_str();
 
-
-        // if (customers[i].payment == "Credit Card"){
-        //     string lastFourDigit = customers[i].creditCardNumber.substr(customers[i].creditCardNumber.length()-4);
-        //     cout << lastFourDigit << "\n";
-            
-        //     const char *str10 = lastFourDigit.c_str();
-        // } else {
-        //     const char *str10 = customers[i].creditCardNumber.c_str();
-        // }
-
+        //define space
         printf("%-8d%-16s%-16s%-20s\t%-16s%-16s%-16s%-16s%-16s%-16s%-4s\n", customers[i].customerId,str1,str2,str3,str4,str5,str6,str7,str8,str9,str10+10);
     }
     
@@ -467,7 +504,7 @@ void adminInfo(vector <Customers> &customers, vector <Drivers> &drivers, vector 
     cout << "Admin Information\n";
     cout << "************************************************\n";
     cout << "ID\tName\t\tPhone\t\tEmail\t\t\tStreet\t\tCity\t\tState\t\tCountry\t\tPostal Code\n";
-    for (int i = 1; i < drivers.size(); i++){
+    for (int i = 1; i < admins.size(); i++){
         const char *str1 = admins[i].name.c_str();      //convert string to char*
         const char *str2 = admins[i].phone.c_str();
         const char *str3 = admins[i].email.c_str();
@@ -502,7 +539,7 @@ void adminInfo(vector <Customers> &customers, vector <Drivers> &drivers, vector 
             }
             break;
         } else {
-            cout << "\n  ！Please answer with y or n\n\n";
+            cout << "\n  !Please answer with y or n\n\n";
             cin.clear();
             cin.ignore(10000, '\n');
         }
@@ -649,10 +686,6 @@ void inquiryReport(vector <Customers> &customers, vector <Drivers> &drivers, vec
     cout << "************************************************\n";
     cout << "Inquiry Report\n";
     cout << "************************************************\n";
-    // cout << "Date\t\tCustomer\tUser Type\tPhone\t\t\tEmail\t\t\tTopic\t\tDetail\n";
-    // for (int i = 1; i < inquiries.size(); i++){
-    //     cout << inquiries[i].year << "/" << inquiries[i].month << "/"<< inquiries[i].day << "  \t" << inquiries[i].name << "   \t" << inquiries[i].userType << "   \t" << inquiries[i].phone << "   \t" << inquiries[i].email << "   \t" << inquiries[i].topic << "\t" << inquiries[i].detail <<"   \n";
-    // }
 
     cout << "Date\t\tCustomer\tUser Type\tPhone\t\tEmail\t\t\tTopic\t\tDetail\n";
     for (int i = 1; i < inquiries.size(); i++){

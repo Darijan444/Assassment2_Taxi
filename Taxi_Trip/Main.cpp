@@ -2,7 +2,7 @@
 #include <vector>
 #include <fstream>      //for ofstream, ifstream
 #include <sstream>      //for istringstream
-#include "Common.h"
+#include "Common.h"     //read common.h at first
 #include "Admin.h"
 #include "Customer.h"
 #include "Driver.h"
@@ -21,13 +21,13 @@ void mainMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <
 bool isPhoneValid(string& phone);
 bool isPostalCodeValid(string& postalCode);
 bool isEmailValid(string& email);
+bool isAddressValid(string& address);
 bool isPasswordValid(string& password);
 bool isIntegerValid(string& number);
 bool isYesNoValid(string& answer);
 bool isMultiDigitValid(string& number);
 bool isNameValid(string& name);
 bool isLicenseValid(string& number);
-// bool isOptionValid(int firstOption, int lastOption, int userInput);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -40,6 +40,7 @@ int main(){
     vector <Orders> orders;
     vector <Inquiries> inquiries;
 
+    //read CSV files
     readCustomerList(customers);
     readDriverList(drivers);
     readAdminList(admins);
@@ -66,7 +67,6 @@ int main(){
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void mainMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <Admins> &admins, vector <Orders> &orders, vector <Inquiries> &inquiries, int* sId){
     string strOption;
-    // int intOption1,intOption2;
     int menuOption, accountOption;
 
     cout << "===============================================================================================\n";
@@ -86,12 +86,12 @@ void mainMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <
     while(true){
         cout << " ------------------------------------------------\n";
         cout << "  Enter option: ";
-        getline(cin, strOption);                                                //integer validation
+        getline(cin, strOption);                                                                    //integer validation
         if(isIntegerValid(strOption) == false){
             cout << " ------------------------------------------------\n";
             cout << "\n !Select a number from the menu. (Press any key) \n\n";
-            cin.clear();
-            cin.ignore(10000, '\n');
+            cin.clear();                                                                            //clear cin data      
+            cin.ignore(10000, '\n');                                                                //clear buffer data 10,000 (should be enogh for this project)
         } else if (strOption == "1" || strOption == "2" || strOption == "3" || strOption == "4"){   //option validation
             cout << "\n\n";
             break;
@@ -102,7 +102,7 @@ void mainMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <
             cin.ignore(10000, '\n');
         }
     }
-    menuOption = stoi(strOption);
+    menuOption = stoi(strOption);       //string to integer 
     
 
     switch (menuOption) {
@@ -141,7 +141,9 @@ void mainMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <
 
         switch (accountOption){
             case 1:
-            *sId = driverLogin(drivers, orders, inquiries);
+            *sId = driverLogin(drivers, orders, inquiries);         //get session id after login
+
+            //succesfully login case
             if (*sId != 0){
                 driverMenu(drivers, orders, inquiries, sId);
             }
@@ -149,7 +151,7 @@ void mainMenu(vector <Customers> &customers, vector <Drivers> &drivers, vector <
 
             case 2:
             driverSignup(drivers, sId);
-            *sId = drivers.size() -1;
+            *sId = drivers.size() -1;                               //latest driver id is size() -1
 
             if (*sId != 0){
                 driverMenu(drivers, orders, inquiries, sId);
